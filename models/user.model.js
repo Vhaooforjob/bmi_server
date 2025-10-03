@@ -3,17 +3,14 @@ const bcrypt = require('bcryptjs');
 const db = require('./../configs/db')
 const {Schema} = mongoose;
 
-const emergencyContactSchema = new mongoose.Schema({
-    phoneNumber: { type: String, required: true },
-    role: { type: String, required: true }
-  });
-
 const UserSchema = new Schema({
     username: { type: String, unique: true, required: true },
     password: { type: String, required: true },
     email: { type: String, unique: true, required: true },
     phoneNumber: { type: String },
     full_name: { type: String, required: true },
+    birthdate: { type: Date },
+    sex: { type: String},
     address: { type: String },
     join_date: { type: Date, default: Date.now },
     image_url: { type: String },

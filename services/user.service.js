@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 class UserService{
     static async registerUser(email, username, password, full_name) {
         try {
-            const user = new UserModel({ email, username, password, full_name,  active_status: '0', verified: false});
+            const user = new UserModel({ email, username, password, full_name,  active_status: '1', verified: false});
             return await user.save();
         } catch (error) {
             throw error;
@@ -46,7 +46,7 @@ class UserService{
     static async verifyToken(token) {
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            return decoded; // Return the decoded token data
+            return decoded;
         } catch (error) {
             throw new Error('Invalid or expired token');
         }
@@ -91,7 +91,6 @@ class UserService{
             throw error;
         }
     }
-        // Retrieve all users after verifying token
     static async getUsers(token) {
         try {
             const decoded = await this.verifyToken(token);
@@ -104,7 +103,6 @@ class UserService{
         }
     }
 
-    // Retrieve a single user by ID after verifying token
     static async getUserById(token, userId) {
         try {
             const decoded = await this.verifyToken(token);

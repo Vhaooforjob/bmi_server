@@ -13,6 +13,8 @@ const authRouters = require('./routes/auth.router');
 const ImageRouters = require('./routes/image.router');
 const statisticalRouters = require('./routes/statistical.router');
 const LoggerRouters = require('./routes/logger.router');
+const kcalRouters = require('./routes/kcal.route');
+const chatbotRouters = require('./routes/chat.route');
 
 const Logger = require('./services/logger.service');
 const app = express();
@@ -63,5 +65,7 @@ app.use('/api/auth', authRouters);
 app.use('/api/image', ImageRouters);
 app.use('/api/statistical', statisticalRouters);
 app.use('/api/logger', LoggerRouters);
+app.use('/api/kcal', kcalRouters);
+app.use('/api/chat', chatbotRouters);
 
 module.exports = app;
