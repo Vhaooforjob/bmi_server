@@ -26,3 +26,12 @@ cron.schedule('0 0 * * *', async () => {
         console.error('[CRON JOB] Lỗi khi xóa logs cũ:', error);
     }
 });
+
+cron.schedule('*/10 * * * *', async () => {
+    try {
+        const res = await axios.get('https://bmi-server-tj6r.onrender.com/');
+        console.log(`[CRON JOB] Ping thành công server Render: ${res.status}`);
+    } catch (error) {
+        console.error('[CRON JOB] Lỗi khi ping server Render:', error.message);
+    }
+});
