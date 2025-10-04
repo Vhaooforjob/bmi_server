@@ -31,9 +31,10 @@ exports.registerUser = async (req, res) => {
             code: passcode,
             expiresAt: new Date(Date.now() + 5 * 60 * 1000) 
         });
-        await sendVerificationEmail(email, passcode);
-
         res.json({ status: true, message: "Đăng ký thành công!" });
+        sendVerificationEmail(email, passcode)
+            .then(() => console.log(`Verification email sent to ${email}`))
+            .catch(err => console.error(`Failed to send verification email to ${email}:`, err));    
     } catch (error) {
         res.status(400).json({ status: false, message: error.message });
     }

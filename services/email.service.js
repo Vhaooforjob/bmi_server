@@ -26,7 +26,7 @@ const sendVerificationEmail = async (email, passcode) => {
         const mailOptions = {
             from: process.env.SMTP_EMAIL,
             to: email,
-            subject: 'Xác nhận tài khoản - Hoá học Phạm Long',
+            subject: 'Xác nhận tài khoản của bạn',
             html: `
                 <div style="font-family: Arial, sans-serif; text-align: center; padding: 20px; border-radius: 10px; background-color: #f4f4f4;">
                     <h2 style="color: #007BFF;">Xác nhận tài khoản</h2>
@@ -40,10 +40,7 @@ const sendVerificationEmail = async (email, passcode) => {
                     <p style="margin-top: 10px;">Hoặc nếu có nghi vấn vui lòng liên hệ với Quản trị viên hệ thống thông qua thông tin bên dưới!</p>
 
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
-
-                    <p style="font-size: 14px; color: #555;"><strong>Hóa học Phạm Long</strong></p>
-                    <p style="font-size: 14px; color: #555;">Email: <a href="mailto:phamlong@gmail.com" style="color: #007BFF; text-decoration: none;">phamlong@gmail.com</a></p>
-                    <p style="font-size: 14px; color: #555;">Phone: <a href="tel:0359108324" style="color: #007BFF; text-decoration: none;">0359108324</a></p>
+                    <p style="font-size: 12px; color: #aaa;">Email này được gửi tự động, vui lòng không trả lời lại email này.<br/>Nếu có thắc mắc vui lòng liên hệ với Quản trị viên hệ thống qua email:
                 </div>
             `
         };
