@@ -412,6 +412,17 @@
               "properties": {
                 "userId": {
                   "example": "any"
+                },
+                "title":
+                {
+                  "example": "any"
+                },
+                  "description":
+                {
+                  "example": "any"
+                },
+                "image": {
+                  "example": "any"
                 }
               }
             }
