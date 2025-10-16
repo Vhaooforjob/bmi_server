@@ -5,7 +5,7 @@
     "description": "API documentation for BMI server",
     "version": "1.0.0"
   },
-  "host": "localhost:3333",
+  "host": "https://bmi-server-tj6r.onrender.com",
   "basePath": "/",
   "schemes": [
     "http"
